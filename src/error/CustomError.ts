@@ -10,6 +10,7 @@ export class InvalidInfos extends CustomError {
   }
 }
 
+
 export class InvalidToken extends CustomError {
   constructor() {
     super(400, "Token Inválido!");
@@ -21,3 +22,4 @@ export class InvalidAuthenticatorData extends CustomError {
     super(400, "Autenticador inválido!");
   }
 }
+
