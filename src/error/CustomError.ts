@@ -9,3 +9,4 @@ export class InvalidInfos extends CustomError {
     super(400, "Um ou mais dados inválidos!");
   }
 }
+
