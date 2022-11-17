@@ -1,5 +1,3 @@
-import { Interface } from "readline";
-
 export type AuthenticationData = {
   id: string;
 };
