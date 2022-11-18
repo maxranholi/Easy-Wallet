@@ -21,4 +21,16 @@ export class UserController {
       res.status(400).send(error.message);
     }
   }
+
+  async login(req: Request, res: Response) {
+    try {
+      const { name, password } = req.body;
+
+      const token = await userBusiness.login(name, password);
+
+      res.status(200).send({ acess_token: token });
+    } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  }
 }

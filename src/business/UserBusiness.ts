@@ -33,4 +33,29 @@ export class UserBusiness {
       return error.message;
     }
   }
+
+  async login(name: string, password: string) {
+    try {
+      const user = await userDatabase.login(name);
+
+      if (!name) {
+        throw new Error("nome inválido");
+      }
+
+      const isValidPassword = await hashManager.compare(
+        password,
+        user.password
+      );
+
+      if (!isValidPassword) {
+        throw new Error("Senha inválida");
+      }
+
+      const token = tokenGenerator.generateToken({ id: user.id });
+
+      return token;
+    } catch (error) {
+      return error.message;
+    }
+  }
 }
