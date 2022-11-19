@@ -23,3 +23,9 @@ export class InvalidAuthenticatorData extends CustomError {
   }
 }
 
+export class InvalidPrice extends CustomError {
+  constructor() {
+    super(400, "Preço igual ou menor que 0");
+  }
+}
+

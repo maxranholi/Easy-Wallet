@@ -3,6 +3,7 @@ import {
   CustomError,
   InvalidAuthenticatorData,
   InvalidInfos,
+  InvalidPrice,
   InvalidToken,
 } from "../error/CustomError";
 import { Transaction, TransactionDTO } from "../models/Transaction";
@@ -27,8 +28,12 @@ export class TransactionBusiness {
         throw new InvalidAuthenticatorData();
       }
 
-      if (!idUser || !price || !title || !description || !type) {
+      if (!idUser || !price || !title || !type) {
         throw new InvalidInfos();
+      }
+
+      if (price <= 0) {
+        throw new InvalidPrice();
       }
 
       const id = generateId();

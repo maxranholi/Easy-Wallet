@@ -8,11 +8,11 @@ Content-Type: application/json
 }
 
 ###
-
 GET http://localhost:3003/user/login
 Content-Type: application/json
 
 {
+
     "email": "sofia@email.com",
     "password": "123456"
 }
@@ -24,4 +24,17 @@ DELETE http://localhost:3003/user/del
 {
     "email": "sofia@email.com",
     "password": "123456"
+}
+
+###
+POST http://localhost:3003/transaction/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImFiM2ZmYzE4LTA4MDUtNDU0OC05OTNjLTUwOWE4YmRlYmYzNyJ9LCJpYXQiOjE2Njg4MTA1OTEsImV4cCI6MTY2ODgxNDE5MX0.SK_cMrMjFz1gMIp-rhF6Y2QhQZO6A3dCtatbLqg2wE0
+Content-Type: application/json
+
+{
+    "idUser" : "ab3ffc18-0805-4548-993c-509a8bdebf37",
+    "price" : 700,
+    "title" : "Conta de luz",
+    "description" : "Paguei a conta de luz",
+    "type" : "SAÍDA"
 }
