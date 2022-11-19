@@ -2,13 +2,13 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Sofia",
-    "email": "sofia@email.com",
+    "name": "Cleber",
+    "email": "Cleber@email.com",
     "password": "123456"
 }
 
 ###
-GET http://localhost:3003/user/login
+POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
@@ -19,12 +19,9 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:3003/user/del
+DELETE http://localhost:3003/user/del/0040a25f-ee71-45be-ab31-16c13bbd74a4
+Content-Type: application/json
 
-{
-    "email": "sofia@email.com",
-    "password": "123456"
-}
 
 ###
 POST http://localhost:3003/transaction/create

@@ -59,19 +59,16 @@ export class UserBusiness {
     }
   }
 
-  async delete(email: string, password: string) {
-    // const user = await userDatabase.login(email);
-
-    // if (!email) {
-    //   throw new Error("Emial inválido");
-    // }
-
-    // const isValidPassword = await hashManager.compare(password, user.password);
-
-    // if (!isValidPassword) {
-    //   throw new Error("Senha inválida");
-    // }
-
-    await userDatabase.delete(email, password);
+  async delete(id: string) {
+    try {
+      
+      if (!id) {
+        throw new Error("Id inválido");
+      }
+      
+      await userDatabase.delete(id);
+    } catch (error: any) {
+      return error.message;
+    }
   }
 }
