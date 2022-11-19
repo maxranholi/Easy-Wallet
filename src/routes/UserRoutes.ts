@@ -6,6 +6,6 @@ const userController = new UserController();
 
 userRouter.post("/signup", userController.signUp)
 
-userRouter.get("/login", userController.login)
+userRouter.post("/login", userController.login)
 
-userRouter.delete("/del", userController.delete)
+userRouter.delete("/del/:id", userController.delete)

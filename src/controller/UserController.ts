@@ -36,11 +36,11 @@ export class UserController {
 
   public async delete(req: Request, res: Response) {
     try {
-      const { email, password } = req.body;
+      const { id } = req.params;
 
-      await userBusiness.delete(email, password);
+      await userBusiness.delete(id);
 
-      res.status(200).send(`Usuário ${email} deletado com sucesso`);
+      res.status(200).send(`Usuário ${id} deletado com sucesso`);
     } catch (error) {
       res.status(400).send(error.message);
     }

@@ -19,9 +19,9 @@ export class UserDatabase extends BaseDatabase {
     return result[0];
   }
 
-  public async delete(email: string, password: string) {
+  public async delete(id : string) {
     await BaseDatabase.connection("Ew_users")
-      .where({ email: email, password: password })
+      .where({ id })
       .del();
   }
 }
