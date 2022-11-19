@@ -11,11 +11,17 @@ export class UserDatabase extends BaseDatabase {
     });
   }
 
-  public async login(name: string) {
+  public async login(email: string) {
     const result = await BaseDatabase.connection("Ew_users")
       .select()
-      .where({ name });
+      .where({ email });
 
     return result[0];
+  }
+
+  public async delete(email: string, password: string) {
+    await BaseDatabase.connection("Ew_users")
+      .where({ email: email, password: password })
+      .del();
   }
 }

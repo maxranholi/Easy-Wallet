@@ -5,7 +5,7 @@ import { UserDTO } from "../models/User";
 const userBusiness = new UserBusiness();
 
 export class UserController {
-  async signUp(req: Request, res: Response) {
+  public async signUp(req: Request, res: Response) {
     try {
       const { name, email, password } = req.body;
 
@@ -22,14 +22,26 @@ export class UserController {
     }
   }
 
-  async login(req: Request, res: Response) {
+  public async login(req: Request, res: Response) {
     try {
-      const { name, password } = req.body;
+      const { email, password } = req.body;
 
-      const token = await userBusiness.login(name, password);
+      const token = await userBusiness.login(email, password);
 
       res.status(200).send({ acess_token: token });
     } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  }
+
+  public async delete(req: Request, res: Response) {
+    try {
+      const { email, password } = req.body;
+
+      await userBusiness.delete(email, password);
+
+      res.status(200).send(`Usuário ${email} deletado com sucesso`);
+    } catch (error) {
       res.status(400).send(error.message);
     }
   }

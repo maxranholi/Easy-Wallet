@@ -12,7 +12,17 @@ GET http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "name": "Diogo",
+
+    "email": "sofia@email.com",
+    "password": "123456"
+}
+
+
+###
+DELETE http://localhost:3003/user/del
+
+{
+    "email": "sofia@email.com",
     "password": "123456"
 }
 
