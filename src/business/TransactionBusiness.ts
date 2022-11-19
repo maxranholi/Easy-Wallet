@@ -52,4 +52,23 @@ export class TransactionBusiness {
       throw new CustomError(400, error.message);
     }
   }
+
+  async getTransactions(token: string) {
+    try {
+      if (!token) {
+        throw new InvalidToken();
+      }
+
+      const authData = tokenGenerator.getData(token);
+
+      if (!authData.id) {
+        throw new InvalidAuthenticatorData();
+      }
+
+      const result = await transactionDatabase.getTransactions();
+      return result;
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  }
 }

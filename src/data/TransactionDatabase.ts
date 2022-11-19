@@ -12,4 +12,11 @@ export class TransactionDatabase extends BaseDatabase {
       type: transaction.type,
     });
   }
+
+  public async getTransactions() {
+    const result = await TransactionDatabase.connection("Ew_users_transaction")
+    .select()  
+
+    return result
+  }
 }
