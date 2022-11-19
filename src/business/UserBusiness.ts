@@ -34,11 +34,11 @@ export class UserBusiness {
     }
   }
 
-  async login(name: string, password: string) {
+  async login(email: string, password: string) {
     try {
-      const user = await userDatabase.login(name);
+      const user = await userDatabase.login(email);
 
-      if (!name) {
+      if (!email) {
         throw new Error("nome inválido");
       }
 
@@ -57,5 +57,21 @@ export class UserBusiness {
     } catch (error) {
       return error.message;
     }
+  }
+
+  async delete(email: string, password: string) {
+    // const user = await userDatabase.login(email);
+
+    // if (!email) {
+    //   throw new Error("Emial inválido");
+    // }
+
+    // const isValidPassword = await hashManager.compare(password, user.password);
+
+    // if (!isValidPassword) {
+    //   throw new Error("Senha inválida");
+    // }
+
+    await userDatabase.delete(email, password);
   }
 }

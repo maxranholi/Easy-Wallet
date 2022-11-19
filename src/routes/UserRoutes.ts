@@ -7,3 +7,5 @@ const userController = new UserController();
 userRouter.post("/signup", userController.signUp)
 
 userRouter.get("/login", userController.login)
+
+userRouter.delete("/del", userController.delete)
